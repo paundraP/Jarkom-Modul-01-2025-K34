@@ -97,6 +97,56 @@ Kita bisa mengetahui bahwa yang di ketik melkor adalah encoded base64, maka kita
 
 Maka didapatkan pesan tersembunyi nya adalah `Plz_pr0v1de_y0ur_us3rn4me_4nd_p4ssw0rd`.
 
+**FLAG: KOMJAR25{K3yb0ard_W4rr10r_NGhAXCxOBCHXTdUD5SkQt9DAZ}**
+
+**(Q16) Melkor semakin murka ia meletakkan file berbahaya di server milik Manwe. Dari file capture yang ada, identifikasi file apa yang diletakkan oleh Melkor. nc 10.15.43.32 3403**
+
+1. What credential did the attacker use to log in? Format: user:pass
+
+Kita bisa melihat bahwa captured network tersebut menggunakan protocol `ftp` untuk melakukan komunikasi, jadi kita bisa filter untuk menampilkan hanya paket yang menggunakan protokol `ftp` dan kita bisa mendapatkan kredensial yang digunakan.
+
+![image](./images/16_1.jpeg)
+
+Dapat diketahui bahwa kredensial yang digunakan adalah `ind@psg420.com:{6r_6e#TfT1p`
+
+2. How many files are suspected of containing malware? Format: int
+
+Pertama tama, pada screnshoot diatas, kita bisa melihat beberapa file yang ter transfer, lalu kita bisa menggunakan salah satu bagian dari ftp, yaitu requst command, untuk memfilter file yang di transfer, `ftp.request.command == "SIZE"`.
+
+![image](./images/16_2.jpeg)
+
+Dan dapat diketahui, terdapat `5` file yang mencurigakan.
+
+Kita bisa export semua file yang di transfer menggunakan protokol `ftp` dengan klik kanan paket, follow -> TCP stream dan tinggal Save as.
+
+![image](./images/16_3.jpeg)
+
+3. What is the hash of the first file (q.exe)? Format: string
+
+`ca34b0926cdc3242bbfad1c4a0b42cc2750d90db9a272d92cfb6cb7034d2a3bd`
+
+4. What is the hash of the second file (w.exe)? Format: string
+
+`08eb941447078ef2c6ad8d91bb2f52256c09657ecd3d5344023edccf7291e9fc`
+
+5. What is the hash of the third file (e.exe)? Format: string
+
+`32e1b3732cd779af1bf7730d0ec8a7a87a084319f6a0870dc7362a15ddbd3199`
+
+6. What is the hash of the fourth file (r.exe)? Format: string
+
+`4ebd58007ee933a0a8348aee2922904a7110b7fb6a316b1c7fb2c6677e613884`
+
+7. What is the hash of the fifth file (t.exe)? Format: string
+
+`10ce4b79180a2ddd924fdc95951d968191af2ee3b7dfc96dd6a5714dbeae613a`
+
+**FLAG: KOMJAR25{Y0u_4r3_4_g00d_4nalyz3r_vrMxEP4WwKqQzHwi0Aen7WSGA}**
+
+
+
+
+
 
 
 
