@@ -143,6 +143,33 @@ Kita bisa export semua file yang di transfer menggunakan protokol `ftp` dengan k
 
 **FLAG: KOMJAR25{Y0u_4r3_4_g00d_4nalyz3r_vrMxEP4WwKqQzHwi0Aen7WSGA}**
 
+**(Q17) Manwe membuat halaman web di node-nya yang menampilkan gambar cincin agung. Melkor yang melihat web tersebut merasa iri sehingga ia meletakkan file berbahaya agar web tersebut dapat dianggap menyebarkan malware oleh Eru. Analisis file capture untuk menggagalkan rencana Melkor dan menyelamatkan web Manwe. nc 10.15.43.32 3404**
+
+1. What is the name of the first suspicious file? Format: file.exe
+
+Untuk mengetahui hal tersebut, kita bisa filter `http` dan melihat file yang di fetch.
+
+![image](./images/17_1.jpeg)
+
+Dapat diketahui, file yang mencurigakan adalah `Invoice&MSO-Request.doc`
+
+2. What is the name of the second suspicious file? Format: file.exe
+
+Bisa dilihat juga dari screenshoot diatas juga bahwa file kedua yaitu `knr.exe`
+
+3. What is the hash of the second suspicious file (knr.exe)? Format: sha256
+
+Bisa di export lewat: File -> Export Object -> HTTP. Dan kita bisa melihat hash nya.
+
+![image](./images/17_2.jpeg)
+
+Maka hash nya adalah `749e161661290e8a2d190b1a66469744127bc25bf46e5d0c6f2e835f4b92db18`
+
+**FLAG: KOMJAR25{M4ster_4n4lyzer_t0GTVPicUaciXSoRYwRzGOUI8}**
+
+
+
+
 
 
 
