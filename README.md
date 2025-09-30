@@ -167,6 +167,46 @@ Maka hash nya adalah `749e161661290e8a2d190b1a66469744127bc25bf46e5d0c6f2e835f4b
 
 **FLAG: KOMJAR25{M4ster_4n4lyzer_t0GTVPicUaciXSoRYwRzGOUI8}**
 
+**(Q18) Karena rencana Melkor yang terus gagal, ia akhirnya berhenti sejenak untuk berpikir. Pada saat berpikir ia akhirnya memutuskan untuk membuat rencana jahat lainnya dengan meletakkan file berbahaya lagi tetapi dengan metode yang berbeda. Gagalkan lagi rencana Melkor dengan mengidentifikasi file capture yang disediakan agar dunia tetap aman. nc 10.15.43.32 3405**
+
+1. How many files are suspected of containing malware? Format: int
+
+Untuk mengetahui jumlahnya, kita bisa membuka file pcap yang sudah diberikan terlebih dahulu. Sangat banyak protokol yang digunakan, oleh karena itu, kita bisa filter satu satu terlebih dahulu. Lalu, Ditemukan file dengan nama yang mencurigakan pada protokol `smb`. Dan terdapat 2 file yang mencurigakan
+
+![image](./images/18_1.jpeg)
+
+Maka dapat diketahui bahwa terdapat `2` file yang mengandung malware.
+
+2. What is the name of the first malicious file? Format: file.exe
+
+Dari screenshoot diatas, file pertamanya adalah `d0p2nc6ka3f_fixhohlycj4ovqfcy_smchzo_ub83urjpphrwahjwhv_o5c0fvf6.exe`
+
+3. Apa nama file berbahaya yang kedua? Format: file.exe
+
+Dari screenshoot diatas, file keduanya adalah `oiku9bu68cxqenfmcsos2aek6t07_guuisgxhllixv8dx2eemqddnhyh46l8n_di.exe`
+
+Kita bisa ekstrak file diatas melalui: File -> Export Objects -> SMB dan mendapatkan hash dari kedua file tersebut.
+
+![image](./images/18_2.jpeg)
+
+4. What is the hash of the first malicious file? Format: sha256
+
+`59896ae5f3edcb999243c7bfdc0b17eb7fe28f3a66259d797386ea470c010040`
+
+5. What is the hash of the second malicious file? Format: sha256
+
+`cf99990bee6c378cbf56239b3cc88276eec348d82740f84e9d5c343751f82560`
+
+
+**FLAG: KOMJAR25{Y0u_4re_g0dl1ke_PjPLhWGPWfpWYVJJiNZbJHcWz}**
+
+
+
+
+
+
+
+
 
 
 
