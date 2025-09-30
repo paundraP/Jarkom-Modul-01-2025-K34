@@ -201,6 +201,61 @@ Kita bisa ekstrak file diatas melalui: File -> Export Objects -> SMB dan mendapa
 **FLAG: KOMJAR25{Y0u_4re_g0dl1ke_PjPLhWGPWfpWYVJJiNZbJHcWz}**
 
 
+**(Q19) Manwe mengirimkan email berisi surat cinta kepada Varda melalui koneksi yang tidak terenkripsi. Melihat hal itu Melkor sipaling jahat langsung melancarkan aksinya yaitu meneror Varda dengan email yang disamarkan. Analisis file capture jaringan dan gagalkan lagi rencana busuk Melkor. nc 10.15.43.32 3406**
+
+1. Who sent the threatening message? Format: string (name)
+
+Untuk mengetahui namanya, kita bisa klik kanan paket yang memiliki protokol `SMTP`, lalu Follow -> TCP stream.
+
+![image](./images/19_1.jpeg)
+
+Bisa dilihat, `From: Your Life<YourLife36@7162.com>` maka dapat diketahui bahwa yang mengirimkan pesan berbahaya adalah `Your Life`
+
+2. How much ransom did the attacker demand ($)? Format: int
+
+Bisa dilihat pada satu stream yang sama, dan di geser kebawah. Disebutkan bahwa victim harus membayar `1600`$.
+
+![image](./images/19_2.jpeg)
+
+3. What is the attacker's bitcoin wallet? Format: string
+
+Bisa dilihat juga pada screenshoot diatas, bahwa walletnya adalah `1CWHmuF8dHt7HBGx5RKKLgg9QA2GmE3UyL`
+
+**FLAG: KOMJAR25{Y0u_4re_J4rk0m_G0d_rrpnPFDTx39AR5ms5PFX9eM08}**
+
+
+**(Q20) Untuk yang terakhir kalinya, rencana besar Melkor yaitu menanamkan sebuah file berbahaya kemudian menyembunyikannya agar tidak terlihat oleh Eru. Tetapi Manwe yang sudah merasakan adanya niat jahat dari Melkor, ia menyisipkan bantuan untuk mengungkapkan rencana Melkor. Analisis file capture dan identifikasi kegunaan bantuan yang diberikan oleh Manwe untuk menggagalkan rencana jahat Melkor selamanya. nc 10.15.43.32 3407**
+
+1. What encryption method is used? Format: string
+
+Bisa dilihat bahwa terdapat TLSv1.2 yang ada, dapat disimpulkan bahwa enkripsinya adalah `TLS`.
+
+![image](./images/20_1.jpeg)
+
+2. What is the name of the malicious file placed by the attacker? Format: file.exe
+
+Diberikan juga dalam zip file keylogs.txt, maka kita dapat memanfaatkan keylog tersebut untuk melakukan dekripsi terhadap paket yang terenkripsi oleh `TLS`. Dan kita dapat membuka paket paket yang terenkripsi adalah protokol `http`.
+
+![image](./images/20_2.jpeg)
+
+Dan file yang mencurigakan adalah `invest_20.dll`
+
+3. What is the hash of the file containing the malware? Format: sha256
+
+Kita bisa ekspor http tersebut menggunakan cara yang sudah saya beri tahu sebelumnya.
+
+![image](./images/20_3.jpeg)
+
+Jadi hash nya adalah `31cf42b2a7c5c558f44cfc67684cc344c17d4946d3a1e0b2cecb8eb58173cb2f`
+
+
+**FLAG: KOMJAR25{B3ware_0f_M4lw4re_ZmmLBGyOTqdP7G9EVsoTgT1Yi}**
+
+
+
+
+
+
 
 
 
