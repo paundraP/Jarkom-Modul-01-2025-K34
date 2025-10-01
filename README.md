@@ -45,6 +45,22 @@ pada `/root/.bashrc` yang ada di node Eru, isikan dibagian paling bawah untuk co
 
 **(Q6) Setelah semua Ainur terhubung ke internet, Melkor mencoba menyusup ke dalam komunikasi antara Manwe dan Eru. Jalankan file berikut (link file) lalu lakukan packet sniffing menggunakan Wireshark pada koneksi antara Manwe dan Eru, lalu terapkan display filter untuk menampilkan semua paket yang berasal dari atau menuju ke IP Address Manwe. Simpan hasil capture tersebut sebagai bukti.**
 
+1. Download dan simpan file tersebut, lalu buka directory file traffic.sh, kemudian buka powershell untuk menjalankan
+  <img width="812" height="51" alt="image" src="https://github.com/user-attachments/assets/1363c4fd-23fa-4328-920a-64f1504cdd87" />
+
+2. Cari IP Windows: ipconfig > catat IPv4 Address
+
+3. Lalu pada console node Manwe kita perlu jalankan command berikut
+    bash
+    ```
+    curl -o traffic.sh http://192.168.1.10:8000/traffic.sh
+    chmod +x traffic.sh
+    ./traffic.sh
+    ```
+  <img width="828" height="424" alt="Screenshot 2025-10-01 212446" src="https://github.com/user-attachments/assets/bed27c67-8780-437a-a603-8f31dcd027e1" />
+4. Tunggu traffic selama 10 detik sampai selesai, sambil jalankan Start Capture pada Link Eru menuju Switch 1 dengan cara klik kanan.
+4. Ketika sudah selesai trafficnya, maka Stop Capture nya.
+
 **(Q7) Untuk meningkatkan keamanan, Eru memutuskan untuk membuat sebuah FTP Server di node miliknya. Lakukan konfigurasi FTP Server pada node Eru. Buat dua user baru: ainur dengan hak akses write&read dan melkor tanpa hak akses sama sekali ke direktori shared. Buktikan hasil tersebut dengan membuat file teks sederhana kemudian akses file tersebut menggunakan kedua user.**
 
 **(Q8) Ulmo, sebagai penjaga perairan, perlu mengirimkan data ramalan cuaca ke node Eru. Lakukan koneksi sebagai client dari node Ulmo ke FTP Server Eru menggunakan user ainur. Upload sebuah file berikut (link file). Analisis proses ini menggunakan Wireshark dan identifikasi perintah FTP yang digunakan untuk proses upload.**
