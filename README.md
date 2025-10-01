@@ -4,16 +4,44 @@
 | Nama | NRP |
 |------ | ----- |
 | Paundra Pujo Darmawan | 5027241008 |
+| Zidny Ilman Nafi'an | 5027221072 |
 
 **(Q1) Untuk mempersiapkan pembuatan entitas selain mereka, Eru yang berperan sebagai Router membuat dua Switch/Gateway. Dimana Switch 1 akan menuju ke dua Ainur yaitu Melkor dan Manwe. Sedangkan Switch 2 akan menuju ke dua Ainur lainnya yaitu Varda dan Ulmo. Keempat Ainur tersebut diberi perintah oleh Eru untuk menjadi Client.**
 
+Kita akan membuat sebuah topologi sesuai dengan soal yang diminta sebagai berikut
+<img width="813" height="712" alt="image" src="https://github.com/user-attachments/assets/9ca22635-bc5c-4453-8687-065e7631aa7b" />
+
 **(Q2) Karena menurut Eru pada saat itu Arda (Bumi) masih terisolasi dengan dunia luar, maka buat agar Eru dapat tersambung ke internet.**
+
+Lalu pada node Eru, kita harus mengkonfigurasi networknya sebagai berikut
+<img width="759" height="492" alt="image" src="https://github.com/user-attachments/assets/2a5fd74b-569b-43cd-89ca-0f79352a403f" />
 
 **(Q3) Sekarang pastikan agar setiap Ainur (Client) dapat terhubung satu sama lain.**
 
+Lalu atur atur juga Network Configuration pada masing-masing client
+- Melkor 
+  <img width="431" height="179" alt="image" src="https://github.com/user-attachments/assets/8187b032-6f92-44cc-9f0b-7c5fd80e616f" />
+
+- Manware
+  <img width="434" height="179" alt="image" src="https://github.com/user-attachments/assets/b362cf1e-8a9b-4517-95c2-c1f3ff773290" />
+
+- Varda
+  <img width="417" height="190" alt="image" src="https://github.com/user-attachments/assets/54c7c491-3690-43d5-b283-e3884a147e7a" />
+
+- Ulmo
+  <img width="412" height="184" alt="image" src="https://github.com/user-attachments/assets/91ad5a2b-dc69-4221-814f-cac3a7b85c9c" />
+
 **(Q4) Setelah berhasil terhubung, sekarang Eru ingin agar setiap Ainur (Client) dapat mandiri. Oleh karena itu pastikan agar setiap Client dapat tersambung ke internet.**
 
+1. Kemudian pada console node Eru, ketikkan command `iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE -s 192.228.0.0/16`, jangan lupa install iptables terlebih dahulu dengan cara `apt update && apt install iptables`.
+
+2. Selanjutnya pada semua client ketikkan command `echo nameserver 192.168.122.1 > /etc/resolv.conf`
+
 **(Q5) Ainur terkuat Melkor tetap berusaha untuk menanamkan kejahatan ke dalam Arda (Bumi). Sebelum terjadi kerusakan, Eru dan para Ainur lainnya meminta agar semua konfigurasi tidak hilang saat semua node di restart.**
+
+pada `/root/.bashrc` yang ada di node Eru, isikan dibagian paling bawah untuk command `iptables` dan `nameserver` seperti yang dilakukan pada tahap sebelumnya.
+
+<img width="733" height="501" alt="image" src="https://github.com/user-attachments/assets/fbfe6b37-0bbd-42b2-bc1e-b631bf6fdb15" />
 
 **(Q6) Setelah semua Ainur terhubung ke internet, Melkor mencoba menyusup ke dalam komunikasi antara Manwe dan Eru. Jalankan file berikut (link file) lalu lakukan packet sniffing menggunakan Wireshark pada koneksi antara Manwe dan Eru, lalu terapkan display filter untuk menampilkan semua paket yang berasal dari atau menuju ke IP Address Manwe. Simpan hasil capture tersebut sebagai bukti.**
 
