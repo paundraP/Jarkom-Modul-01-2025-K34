@@ -19,16 +19,20 @@ Lalu pada node Eru, kita harus mengkonfigurasi networknya sebagai berikut
 **(Q3) Sekarang pastikan agar setiap Ainur (Client) dapat terhubung satu sama lain.**
 
 Lalu atur atur juga Network Configuration pada masing-masing client
-- Melkor 
+- Melkor
+   
   <img width="431" height="179" alt="image" src="https://github.com/user-attachments/assets/8187b032-6f92-44cc-9f0b-7c5fd80e616f" />
 
 - Manware
+  
   <img width="434" height="179" alt="image" src="https://github.com/user-attachments/assets/b362cf1e-8a9b-4517-95c2-c1f3ff773290" />
 
 - Varda
+  
   <img width="417" height="190" alt="image" src="https://github.com/user-attachments/assets/54c7c491-3690-43d5-b283-e3884a147e7a" />
 
 - Ulmo
+  
   <img width="412" height="184" alt="image" src="https://github.com/user-attachments/assets/91ad5a2b-dc69-4221-814f-cac3a7b85c9c" />
 
 **(Q4) Setelah berhasil terhubung, sekarang Eru ingin agar setiap Ainur (Client) dapat mandiri. Oleh karena itu pastikan agar setiap Client dapat tersambung ke internet.**
@@ -58,8 +62,10 @@ pada `/root/.bashrc` yang ada di node Eru, isikan dibagian paling bawah untuk co
     ./traffic.sh
     ```
   <img width="828" height="424" alt="Screenshot 2025-10-01 212446" src="https://github.com/user-attachments/assets/bed27c67-8780-437a-a603-8f31dcd027e1" />
+  
 4. Tunggu traffic selama 10 detik sampai selesai, sambil jalankan Start Capture pada Link Eru menuju Switch 1 dengan cara klik kanan.
-4. Ketika sudah selesai trafficnya, maka Stop Capture nya.
+5. Ketika sudah selesai trafficnya, maka Stop Capture nya.
+
 
 **(Q7) Untuk meningkatkan keamanan, Eru memutuskan untuk membuat sebuah FTP Server di node miliknya. Lakukan konfigurasi FTP Server pada node Eru. Buat dua user baru: ainur dengan hak akses write&read dan melkor tanpa hak akses sama sekali ke direktori shared. Buktikan hasil tersebut dengan membuat file teks sederhana kemudian akses file tersebut menggunakan kedua user.**
 
